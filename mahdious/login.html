@@ -1,0 +1,271 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Auth Demo - PROTOTYPE ONLY</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="login-style.css">
+</head>
+<body>
+     <audio id="background-music" loop style="display: none;">
+    <source src="assets/music.mp3" type="audio/mpeg">
+    مرورگر شما از پخش صدا پشتیبانی نمی‌کند.
+</audio>
+<button id="music-control-button" style="position: fixed; bottom: 20px; right: 20px; padding: 10px; background: #d40889; color: #000; border: none; border-radius: 5px; cursor: pointer; z-index: 1000;">
+    <i class="fas fa-volume-up"></i>
+</button>
+<script src="music.js"></script>
+    <div class="auth-container">
+        <div class="cosmic-logo">
+            <i class="fas fa-rocket"></i>
+        </div>
+
+        
+
+        <!-- Login Form -->
+        <div id="loginForm" class="fade-in">
+            <h1 class="cosmic-title">خوش آمدید</h1>
+            <p class="cosmic-subtitle">سفر کیهانی خود را ادامه دهید</p>
+
+            <form>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="loginEmail" placeholder="Email" readonly>
+                    <label for="loginEmail"><i class="fas fa-envelope me-2"></i>آدرس ایمیل</label>
+                </div>
+
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="loginPassword" placeholder="Password" readonly>
+                    <label for="loginPassword"><i class="fas fa-lock me-2"></i>رمز عبور</label>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="rememberMe" disabled>
+                    <label class="form-check-label" for="rememberMe">
+                        مرا در این مأموریت به خاطر بسپار
+                    </label>
+                </div>
+
+                <button type="button" class="btn btn-cosmic" onclick="showDemo('login')">
+                    <i class="fas fa-sign-in-alt me-2"></i>شروع مأموریت
+                </button>
+            </form>
+
+            <div class="divider">
+                <span>OR</span>
+            </div>
+
+            <div class="social-login">
+                <a href="#" class="social-btn" onclick="showDemo('social')">
+                    <i class="fab fa-google"></i>
+                </a>
+                <a href="#" class="social-btn" onclick="showDemo('social')">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="social-btn" onclick="showDemo('social')">
+                    <i class="fab fa-discord"></i>
+                </a>
+            </div>
+
+            <div class="toggle-form">
+                <p>New to the galaxy? <a href="#" class="toggle-link" onclick="toggleForm()">به خدمه بپیوندید</a></p>
+                <p><a href="#" class="toggle-link" onclick="showDemo('forgot')">رمز عبور خود را فراموش کرده‌اید؟</a></p>
+            </div>
+        </div>
+
+        <!-- Register Form -->
+        <div id="registerForm" class="hidden">
+            <h1 class="cosmic-title">به خدمه بپیوندید</h1>
+            <p class="cosmic-subtitle">ماجراجویی فضایی خود را آغاز کنید</p>
+
+            <form>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="registerName" placeholder="Full Name" readonly>
+                    <label for="registerName"><i class="fas fa-user me-2"></i>نام فرمانده</label>
+                </div>
+
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="registerEmail" placeholder="Email" readonly>
+                    <label for="registerEmail"><i class="fas fa-envelope me-2"></i>آدرس ایمیل</label>
+                </div>
+
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="registerPassword" placeholder="Password" readonly>
+                    <label for="registerPassword"><i class="fas fa-lock me-2"></i>ایجاد رمز عبور</label>
+                </div>
+
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="confirmPassword" placeholder="Confirm Password" readonly>
+                    <label for="confirmPassword"><i class="fas fa-lock me-2"></i>تأیید رمز عبور</label>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="agreeTerms" disabled>
+                    <label class="form-check-label" for="agreeTerms">
+                        موافقم با <a href="#" class="toggle-link">قوانین بین کهکشانی</a>
+                    </label>
+                </div>
+
+                <button type="button" class="btn btn-cosmic" onclick="showDemo('register')">
+                    <i class="fas fa-rocket me-2"></i>شروع مأموریت
+                </button>
+            </form>
+
+            <div class="divider">
+                <span>یا</span>
+            </div>
+
+            <div class="social-login">
+                <a href="#" class="social-btn" onclick="showDemo('social')">
+                    <i class="fab fa-google"></i>
+                </a>
+                <a href="#" class="social-btn" onclick="showDemo('social')">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="social-btn" onclick="showDemo('social')">
+                    <i class="fab fa-discord"></i>
+                </a>
+            </div>
+
+            <div class="toggle-form">
+                <p>قبلاً حساب دارید؟ <a href="#" class="toggle-link" onclick="toggleForm()">اینجا وارد شوید</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleForm() {
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            
+            if (loginForm.classList.contains('hidden')) {
+                // Show login, hide register
+                registerForm.classList.add('hidden');
+                loginForm.classList.remove('hidden');
+                loginForm.classList.add('fade-in');
+            } else {
+                // Show register, hide login
+                loginForm.classList.add('hidden');
+                registerForm.classList.remove('hidden');
+                registerForm.classList.add('fade-in');
+            }
+        }
+
+        function showDemo(action) {
+            let message = '';
+            switch(action) {
+                case 'login':
+                    message = '🚀 ورود موفق! خوش آمدید فرمانده';
+                    break;
+                case 'register':
+                    message = '🌟  حساب ایجاد شد! به خدمه کیهانی خوش آمدید!';
+                    break;
+                case 'social':
+                    message = '🛸 ورود اجتماعی در اینجا متصل می‌شد!';
+                    break;
+                case 'forgot':
+                    message = '📡 لینک بازیابی رمز عبور ارسال می‌شد!';
+                    break;
+            }
+            
+            // Create a cosmic notification
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(45deg, var(--nebula-purple), var(--accent-gold));
+                color: var(--star-white);
+                padding: 20px;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(212, 8, 137, 0.3);
+                z-index: 1000;
+                font-weight: bold;
+                max-width: 300px;
+                animation: slideIn 0.5s ease-out;
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.5s ease-in forwards';
+                setTimeout(() => notification.remove(), 500);
+            }, 3000);
+        }
+
+        // Add CSS for notification animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Add ripple effect to buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.btn-cosmic, .btn-outline-cosmic');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    ripple.style.cssText = `
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(255,255,255,0.3);
+                        transform: scale(0);
+                        animation: ripple 0.6s linear;
+                        pointer-events: none;
+                    `;
+                    
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+                    ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+                    
+                    this.style.position = 'relative';
+                    this.style.overflow = 'hidden';
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => ripple.remove(), 600);
+                });
+            });
+        });
+
+        // Add ripple animation
+        const rippleStyle = document.createElement('style');
+        rippleStyle.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(rippleStyle);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9722c92187bfa11d',t:'MTc1NTcwMjI5Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

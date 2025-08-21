@@ -1,0 +1,103 @@
+
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+            background: linear-gradient(135deg, #0c0c1e 0%, #000000 50%, #000000 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+       
+       
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .star {
+            position: absolute;
+
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        
+        .cosmic-glow {
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.5), 0 0 60px rgba(75, 0, 130, 0.3);
+        }
+        
+        .planet {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle 
+
+at 30% 30%, #ff6b6b, #4ecdc4, #45b7d1);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        .form-field {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(138, 43, 226, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+
+        }
+        
+        .form-field:focus {
+            border-color: #8a2be2;
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
+            outline: none;
+        }
+        
+        .cosmic-button {
+            background: linear-gradient(45deg, #8a2be2, #4b0082);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cosmic-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px 
+
+rgba(138, 43, 226, 0.4);
+        }
+        
+        .cosmic-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cosmic-button:hover::before {
+            left: 100%;
+        }
+        
+
+        .astronaut-selected {
+            border-color: #8a2be2 !important;
+            background: rgba(138, 43, 226, 0.2) !important;
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
+        }
+    

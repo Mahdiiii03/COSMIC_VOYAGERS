@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>درباره ما - آژانس مسافرتی بین‌کهکشانی</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="about-style.css">
+</head>
+<body>
+    <audio id="background-music" loop style="display: none;">
+    <source src="assets/music.mp3" type="audio/mpeg">
+    مرورگر شما از پخش صدا پشتیبانی نمی‌کند.
+</audio>
+<button id="music-control-button" style="position: fixed; bottom: 20px; right: 20px; padding: 10px; background: #d40889; color: #000; border: none; border-radius: 5px; cursor: pointer; z-index: 1000;">
+    <i class="fas fa-volume-up"></i>
+</button>
+<script src="music.js"></script>
+
+    <!-- نوار ناوبری -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-rocket me-2"></i>سفرهای کهکشانی</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>خانه</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-info-circle me-1"></i>درباره ما</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-rocket me-1"></i>ماموریت‌ها</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-envelope me-1"></i>تماس</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- بخش هیرو -->
+    <div class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">درباره ماموریت ما</h1>
+            <p class="hero-subtitle">پیشگام آینده سفر و کاوش بین‌کهکشانی از سال 2157</p>
+        </div>
+    </div>
+
+    <!-- محتوای اصلی -->
+    <div class="container">
+        <!-- ماموریت و چشم‌انداز -->
+        <div class="cosmic-card">
+            <h2 class="section-title">چشم‌انداز کیهانی ما</h2>
+            <p class="mission-text">
+                در سفرهای کهکشانی، ما معتقدیم که کیهان بزرگ‌ترین مرز بشریت است. ماموریت ما این است که سفر بین‌کهکشانی را برای هر کاوشگر فضایی قابل دسترس، ایمن و فوق‌العاده کنیم. از دشت‌های سرخ مریخ تا قمرهای یخی مشتری، ما بیش از یک قرن است که تمدن‌ها را در سراسر کیهان به هم متصل کرده‌ایم.
+            </p>
+            <br>
+            <p class="mission-text">
+                ما آینده‌ای را تصور می‌کنیم که سفر بین سیستم‌های ستاره‌ای به اندازه عبور از قاره‌ها در گذشته رایج باشد. با استفاده از فناوری پیشرفته فضاپیماها، آموزش حرفه‌ای خدمه و پروتکل‌های ایمنی بی‌نظیر، ما فقط شما را به دنیای دوردست نمی‌بریم – بلکه درهای بی‌نهایت امکان را باز می‌کنیم.
+            </p>
+        </div>
+
+        <!-- بخش آمار -->
+        <div class="stats-section">
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <span class="stat-number">50K+</span>
+                        <div class="stat-label">سفرکنندگان خوشحال</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <span class="stat-number">127</span>
+                        <div class="stat-label">مقاصد</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <span class="stat-number">99.9%</span>
+                        <div class="stat-label">سوابق ایمنی</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <span class="stat-number">65</span>
+                        <div class="stat-label">سال تجربه</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- بخش فضانوردان برتر -->
+        <div class="cosmic-card">
+            <h2 class="section-title">با خدمه نخبه ما آشنا شوید</h2>
+            <p class="section-subtitle">فضانوردان برتر ما دهه‌ها تجربه و تخصص بی‌نظیر خود را به هر ماموریت می‌آورند</p>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="astronaut-card">
+                        <div class="astronaut-avatar">
+                            <i class="fas fa-user-astronaut"></i>
+                        </div>
+                        <h3 class="astronaut-name">فرمانده امیرحسین چدانی</h3>
+                        <div class="astronaut-role">مدیر ارشد ماموریت</div>
+                        <p class="astronaut-description">
+                            با بیش از 20 سال کاوش در فضاهای عمیق، فرمانده چدانی بیش از 200 ماموریت موفق به مریخ، اروپا و فراتر از آن را رهبری کرده است. تخصص او در ناوبری بین‌سیاره‌ای و مدیریت بحران او را به مورد اعتمادترین رهبر ما برای ماموریت‌های پیچیده تبدیل کرده است.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="astronaut-card">
+                        <div class="astronaut-avatar">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="astronaut-name">کاپیتان مهدی حیدری</h3>
+                        <div class="astronaut-role">خلبان ارشد  </div>
+                        <p class="astronaut-description">
+                            کاپیتان حیدری به خاطر مهارت‌های دقیق خلبانیش و تغییرات نوآورانه در فضاپیماها شناخته شده است. او رکورد سریع‌ترین سفر زمین به مریخ را دارد و با موفقیت از سه میدان سیارکی عبور کرده است و همیشه ایمنی مسافران را تضمین کرده است.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="astronaut-card">
+                        <div class="astronaut-avatar">
+                            <i class="fas fa-satellite"></i>
+                        </div>
+                        <h3 class="astronaut-name">دکتر مهدیه شیرپور</h3>
+                        <div class="astronaut-role">افسر ارشد علمی</div>
+                        <p class="astronaut-description">
+                            دکتر شیرپور در زیست‌شناسی بیگانه و زمین‌شناسی سیاره‌ای تخصص دارد. تحقیقات نوآورانه او در مورد دریاچه‌های متان تایتان و اقیانوس‌های زیرسطحی اروپا درک ما از حیات در سیستم خورشیدی خارجی را متحول کرده است. او اطمینان می‌دهد که هر ماموریت به کشف علمی کمک کند.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- دعوت به اقدام -->
+        <div class="text-center" style="padding: 60px 0;">
+            <h2 class="section-title">آماده کاوش در کهکشان هستید؟</h2>
+            <p class="hero-subtitle">به هزاران ماجراجویی بپیوندید که سفرهای کیهانی خود را به ما سپرده‌اند</p>
+            <a href="#" class="btn-cosmic me-3">
+                <i class="fas fa-rocket me-2"></i>ماموریت خود را رزرو کنید
+            </a>
+            <a href="#" class="btn-cosmic">
+                <i class="fas fa-envelope me-2"></i>با خدمه ما تماس بگیرید
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // افزودن انیمیشن اسکرول نرم برای کارت‌ها
+            const cards = document.querySelectorAll('.cosmic-card, .astronaut-card');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'all 0.6s ease';
+                observer.observe(card);
+            });
+
+            // افزودن هندلر کلیک به دکمه‌ها
+            const buttons = document.querySelectorAll('.btn-cosmic');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // ایجاد اثر موجی
+                    const ripple = document.createElement('span');
+                    ripple.style.cssText = `
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(255,255,255,0.3);
+                        transform: scale(0);
+                        animation: ripple 0.6s linear;
+                        pointer-events: none;
+                    `;
+                    
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+                    ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+                    
+                    this.style.position = 'relative';
+                    this.style.overflow = 'hidden';
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => ripple.remove(), 600);
+
+                    // نمایش اعلان
+                    showNotification('🚀 برقراری ارتباط کیهانی در حال انجام...');
+                });
+            });
+
+            // تعاملات ناوبری
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const linkText = this.textContent.trim();
+                    showNotification(`🌟 در حال هدایت به ${linkText}...`);
+                });
+            });
+        });
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: linear-gradient(45deg, var(--nebula-purple), var(--accent-gold));
+                color: var(--star-white);
+                padding: 20px;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(212, 8, 137, 0.3);
+                z-index: 10000;
+                font-weight: bold;
+                max-width: 300px;
+                animation: slideIn 0.5s ease-out;
+                border: 1px solid var(--accent-gold);
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.5s ease-in forwards';
+                setTimeout(() => notification.remove(), 500);
+            }, 3000);
+        }
+
+        // افزودن CSS برای انیمیشن‌ها
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97248bfc915b9fc9',t:'MTc1NTcyMDc2Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>
