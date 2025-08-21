@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مسافران کیهانی - آژانس مسافرتی بین‌کهکشانی</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="background-music" loop style="display: none;">
+        <source src="assets/music.mp3" type="audio/mpeg">
+        مرورگر شما از پخش صدا پشتیبانی نمی‌کند.
+    </audio>
+
+    <!-- دکمه برای فعال کردن/خاموش کردن صدا -->
+    <button id="music-control-button" style="position: fixed; bottom: 20px; right: 20px; padding: 10px; background: #d40889; color: #000; border: none; border-radius: 5px; cursor: pointer; z-index: 1000;">
+        <i class="fas fa-volume-up"></i>
+    </button>
+
+    <!-- نوار ناوبری -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-rocket me-2"></i>مسافران کیهانی
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">صفحه اصلی</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">درباره ما</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">تماس</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">ورود</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html">پنل کاربری</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- بخش هیرو -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">سفری فراتر از ستارگان</h1>
+            <p class="hero-subtitle">شگفتی‌های کیهان را با تورهای برتر بین‌کهکشانی ما کشف کنید</p>
+            <button class="btn btn-cosmic" onclick="scrollToTours()">
+                <i class="fas fa-space-shuttle me-2"></i>کاوش تورها
+            </button>
+        </div>
+    </section>
+    <!-- بخش تورهای برجسته -->
+    <section id="tours" class="tours-section">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-stars me-3"></i>تورهای برجسته کهکشانی
+            </h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="tour-card">
+                        <div class="text-center">
+                            <i class="fas fa-moon tour-icon"></i>
+                        </div>
+                        <img src="images/moon.jpg" alt="تصویر ماه کامل" class="tour-image" style="width: 100%; height: auto; border-radius: 10px; margin-bottom: 20px;">
+                        <h3 class="tour-title">تعطیلات بهشتی ماه</h3>
+                        <p class="tour-description">زیبایی آرام ماه زمین را با اقامت لوکس در گنبدهای کریستالی تجربه کنید. طلوع زمین را بر افق ماه تماشا کنید در حالی که از درمان‌های اسپا بدون گرانش لذت می‌برید.</p>
+                        <div class="tour-price">از ۵۰,۰۰۰ دلار به ازای هر نفر</div>
+                        <button class="btn btn-tour" onclick="showTourDetails('lunar')">
+                            <i class="fas fa-rocket me-2"></i>رزرو کنید
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="tour-card">
+                        <div class="text-center">
+                            <i class="fas fa-globe tour-icon"></i>
+                        </div>
+                        <img src="images/mars.jpg" alt="تصویر مریخ" class="tour-image" style="width: 100%; height: auto; border-radius: 10px; margin-bottom: 20px;">
+                        <h3 class="tour-title">ماجراجویی مریخی</h3>
+                        <p class="tour-description">دره‌های باشکوه و کلاهک‌های یخی قطبی سیاره سرخ را کاوش کنید. از ویرانه‌های باستانی مریخ بازدید کنید و هیجان مسابقه روور در دشت‌های زنگ‌زده را تجربه کنید.</p>
+                        <div class="tour-price">از ۱۵۰,۰۰۰ دلار به ازای هر نفر</div>
+                        <button class="btn btn-tour" onclick="showTourDetails('mars')">
+                            <i class="fas fa-rocket me-2"></i>رزرو کنید
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="tour-card">
+                        <div class="text-center">
+                            <i class="fas fa-ring tour-icon"></i>
+                        </div>
+                        <img src="images/saturn.jpg" alt="تصویر زحل" class="tour-image" style="width: 100%; height: auto; border-radius: 10px; margin-bottom: 20px;">
+                        <h3 class="tour-title">سافاری حلقه‌های زحل</h3>
+                        <p class="tour-description">از طریق سیستم حلقه‌های باشکوه زحل با فضاپیمای مخصوص طراحی‌شده ما عبور کنید. رقص کیهانی ذرات یخ و سنگ را از نزدیک شاهد باشید.</p>
+                        <div class="tour-price">از ۳۰۰,۰۰۰ دلار به ازای هر نفر</div>
+                        <button class="btn btn-tour" onclick="showTourDetails('saturn')">
+                            <i class="fas fa-rocket me-2"></i>رزرو کنید
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="tour-card">
+                        <div class="text-center">
+                            <i class="fas fa-star tour-icon"></i>
+                        </div>
+                        <img src="images/nebula.jpg" alt="تصویر سحابی" class="tour-image" style="width: 100%; height: auto; border-radius: 10px; margin-bottom: 20px;">
+                        <h3 class="tour-title">تور عکاسی سحابی</h3>
+                        <p class="tour-description">زیبایی خیره‌کننده سحابی‌های رنگارنگ را با تجهیزات حرفه‌ای نجومی عکاسی کنید. ایده‌آل برای علاقه‌مندان به فضا و عکاسان.</p>
+                        <div class="tour-price">از ۲۰۰,۰۰۰ دلار به ازای هر نفر</div>
+                        <button class="btn btn-tour" onclick="showTourDetails('nebula')">
+                            <i class="fas fa-rocket me-2"></i>رزرو کنید
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="tour-card">
+                        <div class="text-center">
+                            <i class="fas fa-meteor tour-icon"></i>
+                        </div>
+                        <img src="images/andromeda.jpg" alt="تصویر کهکشان اندرومدا" class="tour-image" style="width: 100%; height: auto; border-radius: 10px; margin-bottom: 20px;">
+                        <h3 class="tour-title">کهکشان اندرومدا</h3>
+                        <p class="tour-description">به سوی بی‌نهایت و فراتر از آن سفری هیجان‌انگیز به خارج از کهکشان راه شیری به سوی اندرومدا</p>
+                        <div class="tour-price">از ۴۰۰,۰۰۰ دلار به ازای هر نفر</div>
+                        <button class="btn btn-tour" onclick="showTourDetails('asteroid')">
+                            <i class="fas fa-rocket me-2"></i>رزرو کنید
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="tour-card">
+                        <div class="text-center">
+                            <i class="fas fa-satellite tour-icon"></i>
+                        </div>
+                        <img src="images/planet.jpg" alt="تصویر ایستگاه فضایی" class="tour-image" style="width: 100%; height: auto; border-radius: 10px; margin-bottom: 20px;">
+                        <h3 class="tour-title">لوکس ایستگاه فضایی</h3>
+                        <p class="tour-description">در ایستگاه فضایی چرخشی ۵ ستاره ما با گرانش مصنوعی اقامت کنید. از غذاهای لذیذ فضایی و منظره پانورامیک کیهان از سوئیت خود لذت ببرید.</p>
+                        <div class="tour-price">از ۱۰۰,۰۰۰ دلار به ازای هر نفر</div>
+                        <button class="btn btn-tour" onclick="showTourDetails('station')">
+                            <i class="fas fa-rocket me-2"></i>رزرو کنید
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- بخش ویژگی‌ها -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">چرا مسافران کیهانی را انتخاب کنید؟</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt feature-icon"></i>
+                        <h4 class="feature-title">تضمین ایمنی ۱۰۰%</h4>
+                        <p>فضاپیماهای ما مجهز به آخرین فناوری ایمنی هستند و توسط کاپیتان‌های فضایی تاییدشده هدایت می‌شوند.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-item">
+                        <i class="fas fa-concierge-bell feature-icon"></i>
+                        <h4 class="feature-title">خدمات لوکس</h4>
+                        <p>راحتی بی‌نظیر را با امکانات برتر و خدمات شخصی‌سازی‌شده کیهانی تجربه کنید.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-item">
+                        <i class="fas fa-user-astronaut feature-icon"></i>
+                        <h4 class="feature-title">راهنمایان متخصص</h4>
+                        <p>راهنمایان فضایی با تجربه ما بینش‌های جذاب درباره هر مقصد را با شما به اشتراک می‌گذارند.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-item">
+                        <i class="fas fa-calendar-alt feature-icon"></i>
+                        <h4 class="feature-title">رزرو انعطاف‌پذیر</h4>
+                        <p>سیستم رزرو آسان با تاریخ‌های انعطاف‌پذیر و بیمه سفر جامع برای آرامش خاطر.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- فوتر -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-rocket me-2"></i>مسافران کیهانی</h5>
+                    <p>دروازه شما به ستارگان از سال ۱۴۰۳</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <p>&copy; ۱۴۰۳ مسافران کیهانی. تمام حقوق محفوظ است. | مجوز سفر بین‌کهکشانی #CV-2024-SPACE</p>
+        </div>
+    </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="music.js"></script>
+    <script>
+        function scrollToTours() {
+            document.getElementById('tours').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        function showTourDetails(tourType) {
+            const tourDetails = {
+                lunar: "تعطیلات بهشتی ماه - ۳ روز در ماه با اقامت لوکس و غذاخوری با منظره زمین.",
+                mars: "ماجراجویی مریخی - کاوش ۷ روزه مریخ شامل ماموریت‌های روور و بازدید از مکان‌های باستانی.",
+                saturn: "سافاری حلقه‌های زحل - سفر ۵ روزه از طریق حلقه‌های زحل با فرصت‌های عکاسی نزدیک.",
+                nebula: "تور عکاسی سحابی - ماموریت ۴ روزه عکاسی کیهانی به زیباترین سحابی‌ها.",
+                asteroid: "استخراج کمربند سیارکی - ماجراجویی ۱۰ روزه استخراج با تجربه عملی استخراج مواد معدنی.",
+                station: "لوکس ایستگاه فضایی - اقامت ۵ روزه در ایستگاه فضایی چرخشی برتر ما با تمام امکانات."
+            };
+            alert(`🚀 ${tourDetails[tourType]}\n\nاین یک سیستم رزرو نمایشی است. در وب‌سایت کامل، این به صفحه رزرو دقیق با تقویم در دسترس، فرم جزئیات مسافر و پردازش پرداخت امن هدایت می‌شود.`);
+        }
+        // اسکرول نرم برای لینک‌های ناوبری
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        // افزودن کلاس فعال به آیتم‌های ناوبری هنگام اسکرول
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

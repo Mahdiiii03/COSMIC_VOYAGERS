@@ -1,0 +1,243 @@
+:root {
+            --space-black: #000000;
+            --deep-space: #000000;
+            --cosmic-blue: #090a34;
+            --star-white: #ffffff;
+            --nebula-purple: #0f1e4d;
+            --accent-gold: #d40889;
+            --nebula-accent: #4f7bb4;
+        }
+body {
+            background: linear-gradient(135deg, var(--space-black) 0%, var(--deep-space) 50%, var(--cosmic-blue) 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative;
+            overflow-x: hidden;
+            color: var(--star-white);
+        }
+        /* Animated stars background */
+body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(2px 2px at 20px 30px, var(--star-white), transparent),
+                radial-gradient(2px 2px at 40px 70px, var(--star-white), transparent),
+                radial-gradient(1px 1px at 90px 40px, var(--star-white), transparent),
+                radial-gradient(1px 1px at 130px 80px, var(--star-white), transparent),
+                radial-gradient(2px 2px at 160px 30px, var(--star-white), transparent),
+                radial-gradient(1px 1px at 50px 100px, var(--star-white), transparent),
+                radial-gradient(2px 2px at 120px 60px, var(--star-white), transparent),
+                radial-gradient(1px 1px at 180px 90px, var(--star-white), transparent);
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            animation: twinkle 4s infinite;
+            z-index: -1;
+            opacity: 0.8;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+.navbar {
+            background: rgba(10, 10, 42, 0.95) !important; /* تیره‌تر برای navbar */
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--accent-gold);
+        }
+.navbar-brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent-gold) !important;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+.navbar-nav .nav-link {
+            color: var(--star-white) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+.navbar-nav .nav-link:hover {
+            color: var(--accent-gold) !important;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
+        }
+.hero-section {
+            padding: 100px 0;
+            text-align: center;
+            color: var(--star-white);
+        }
+.hero-title {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+            to { text-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.6); }
+        }
+.hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+.btn-cosmic {
+            background: linear-gradient(45deg, var(--nebula-purple), var(--accent-gold));
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            color: var(--star-white);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(123, 31, 162, 0.4);
+        }
+.btn-cosmic:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(123, 31, 162, 0.6);
+            color: var(--star-white);
+        }
+.tours-section {
+            padding: 80px 0;
+            background: rgba(26, 35, 126, 0.1); /* تیره‌تر برای بخش تورها */
+            backdrop-filter: blur(10px);
+            margin: 50px 0;
+        }
+.section-title {
+            text-align: center;
+            color: var(--star-white);
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 50px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+.tour-card {
+            background: rgba(10, 10, 42, 0.7); /* کارت‌ها تیره‌تر */
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            height: 100%;
+            color: var(--star-white);
+        }
+.tour-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(74, 20, 140, 0.3);
+            border-color: var(--accent-gold);
+        }
+.tour-icon {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+.tour-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: var(--accent-gold);
+        }
+.tour-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+.tour-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--nebula-accent);
+            margin-bottom: 20px;
+        }
+.btn-tour {
+            background: linear-gradient(45deg, var(--cosmic-blue), var(--nebula-purple));
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            color: var(--star-white);
+            font-weight: bold;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+.btn-tour:hover {
+            background: linear-gradient(45deg, var(--nebula-purple), var(--nebula-accent));
+            transform: translateY(-2px);
+            color: var(--star-white);
+        }
+.features-section {
+            padding: 80px 0;
+            color: var(--star-white);
+        }
+.feature-item {
+            text-align: center;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+.feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+.feature-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+.footer {
+            background: rgba(10, 10, 42, 0.9);
+            color: var(--star-white);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 2px solid var(--accent-gold);
+        }
+.social-icons a {
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: all 0.3s ease;
+        }
+.social-icons a:hover {
+            color: var(--star-white);
+            text-shadow: 0 0 10px var(--accent-gold);
+        }
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+           
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+           
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* اصلاحات برای navbar در RTL */
+        .navbar .container {
+            justify-content: space-between;
+        }
+.navbar-collapse {
+            flex-grow: 0;
+            order: -1; /* منوها رو به سمت راست ببر */
+        }
+.navbar-toggler {
+            order: 0;
+        }
+.navbar-brand {
+            order: 1;
+            margin-left: 15px; /* فاصله از دکمه‌ها */
+        }
+.navbar-nav {
+            margin-left: auto !important; /* شروع منوها از راست با فاصله */
+        }
+    

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تماس با ما - مسافران کیهانی</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="contact-style.css">
+</head>
+<body>
+        <audio id="background-music" loop style="display: none;">
+    <source src="assets/music.mp3" type="audio/mpeg">
+    مرورگر شما از پخش صدا پشتیبانی نمی‌کند.
+</audio>
+<button id="music-control-button" style="position: fixed; bottom: 20px; right: 20px; padding: 10px; background: #d40889; color: #000; border: none; border-radius: 5px; cursor: pointer; z-index: 1000;">
+    <i class="fas fa-volume-up"></i>
+</button>
+<script src="music.js"></script>
+    <!-- پس‌زمینه ستاره‌ها -->
+    <div class="stars" id="stars"></div>
+
+    <!-- سیاره‌های شناور -->
+    <div class="planet w-20 h-20 top-20 right-10 opacity-30"></div>
+    <div class="planet w-12 h-12 top-1/2 left-10 opacity-20" style="animation-delay: -2s;"></div>
+    <div class="planet w-16 h-16 bottom-20 right-1/4 opacity-25" style="animation-delay: -4s;"></div>
+
+    <div class="relative z-10 min-h-screen flex items-center justify-center p-6">
+        <div class="max-w-4xl w-full">
+            <!-- هدر -->
+            <div class="text-center mb-12">
+                <h1 class="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500 mb-4">
+                    🚀 مسافران کیهانی
+                </h1>
+                <p class="text-xl md:text-2xl text-purple-200 mb-2">آژانس مسافرتی میان‌ستاره‌ای</p>
+                <p class="text-lg text-gray-300">آماده‌ای برای شروع سفر کیهانی؟ با مرکز فرماندهی ما تماس بگیر!</p>
+            </div>
+
+            <!-- فرم تماس -->
+            <div class="cosmic-glow bg-black bg-opacity-30 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-purple-500 border-opacity-30">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- فرم -->
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-6 flex items-center">
+                            📡 مرکز فرماندهی
+                        </h2>
+                        <form class="space-y-6" onsubmit="handleSubmit(event)">
+                            <div>
+                                <label class="block text-purple-200 text-sm font-semibold mb-2">نام فضانورد</label>
+                                <input type="text" class="form-field w-full px-4 py-3 rounded-xl text-white placeholder-gray-400" placeholder="نام زمینی خود را وارد کنید" required>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-purple-200 text-sm font-semibold mb-2">ایمیل کیهانی</label>
+                                <input type="email" class="form-field w-full px-4 py-3 rounded-xl text-white placeholder-gray-400" placeholder="your.email@galaxy.com" required>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-purple-200 text-sm font-semibold mb-2">انتخاب فرمانده مأموریت</label>
+                                <div class="grid grid-cols-1 gap-3 mb-6">
+                                    <div class="astronaut-card form-field p-4 rounded-xl cursor-pointer transition-all duration-300 hover:border-purple-400" onclick="selectAstronaut(this, 'mahdiye')">
+                                        <div class="flex items-center space-x-4">
+                                            <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center text-2xl">👩‍🚀</div>
+                                            <div>
+                                                <h4 class="text-white font-bold">دکتر مهدیه</h4>
+                                                <p class="text-purple-200 text-sm">متخصص اکتشاف مریخ</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="astronaut-card form-field p-4 rounded-xl cursor-pointer transition-all duration-300 hover:border-purple-400" onclick="selectAstronaut(this, 'mahdi')">
+                                        <div class="flex items-center space-x-4">
+                                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-full flex items-center justify-center text-2xl">👨‍🚀</div>
+                                            <div>
+                                                <h4 class="text-white font-bold">کاپیتان مهدی</h4>
+                                                <p class="text-blue-200 text-sm">کارشناس ناوبری اعماق فضا</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="astronaut-card form-field p-4 rounded-xl cursor-pointer transition-all duration-300 hover:border-purple-400" onclick="selectAstronaut(this, 'amirhossein')">
+                                        <div class="flex items-center space-x-4">
+                                            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center text-2xl">👨‍🚀</div>
+                                            <div>
+                                                <h4 class="text-white font-bold">مهندس امیرحسین</h4>
+                                                <p class="text-green-200 text-sm">متخصص سیستم‌های فضاپیما</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="selectedAstronaut" name="astronaut" required>
+                            </div>
+
+                            <div>
+                                <label class="block text-purple-200 text-sm font-semibold mb-2">مقصد مورد نظر</label>
+                                <select class="form-field w-full px-4 py-3 rounded-xl text-white bg-transparent">
+                                    <option value="" class="bg-gray-800">انتخاب مقصد کیهانی</option>
+                                    <option value="mars" class="bg-gray-800">🔴 تجربه زندگی در مریخ</option>
+                                    <option value="moon" class="bg-gray-800">🌙 ماجراجویی پایگاه ماه</option>
+                                    <option value="jupiter" class="bg-gray-800">🪐 تور قمرهای مشتری</option>
+                                    <option value="saturn" class="bg-gray-800">💍 پیاده‌روی روی حلقه‌های زحل</option>
+                                    <option value="nebula" class="bg-gray-800">🌌 سفر عکاسی سحابی‌ها</option>
+                                    <option value="asteroid" class="bg-gray-800">☄️ تجربه استخراج سیارک</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-purple-200 text-sm font-semibold mb-2">جزئیات مأموریت</label>
+                                <textarea class="form-field w-full px-4 py-3 rounded-xl text-white placeholder-gray-400 h-32 resize-none" placeholder="از ماجراجویی فضایی رویایی‌ات بگو..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="cosmic-button w-full py-4 px-6 rounded-xl text-white font-bold text-lg">
+                                🚀 ارسال سیگنال ارتباطی
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- اطلاعات تماس -->
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                                🌟 ستاد مرکزی کهکشان
+                            </h3>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-4 p-4 rounded-xl bg-purple-900 bg-opacity-30">
+                                    <span class="text-2xl">📍</span>
+                                    <div>
+                                        <h4 class="text-purple-200 font-semibold">ایستگاه آلفا زمین</h4>
+                                        <p class="text-gray-300">بخش 7G، سکو مداری<br>مدار پایین زمین، منظومه شمسی</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-4 p-4 rounded-xl bg-blue-900 bg-opacity-30">
+                                    <span class="text-2xl">📞</span>
+                                    <div>
+                                        <h4 class="text-blue-200 font-semibold">ارتباط‌گر کوانتومی</h4>
+                                        <p class="text-gray-300">+1-800-COSMIC-1<br>در دسترس ۲۴/۷ در تمام مناطق زمانی</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-4 p-4 rounded-xl bg-pink-900 bg-opacity-30">
+                                    <span class="text-2xl">✉️</span>
+                                    <div>
+                                        <h4 class="text-pink-200 font-semibold">ایمیل زیرفضا</h4>
+                                        <p class="text-gray-300">hello@cosmicvoyagers.space<br>پاسخ طی یک گردش زمین</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ساعات مأموریت -->
+                        <div class="p-6 rounded-xl bg-gradient-to-r from-purple-900 to-blue-900 bg-opacity-40">
+                            <h4 class="text-xl font-bold text-white mb-4 flex items-center">
+                                ⏰ ساعات کاری مرکز فرماندهی
+                            </h4>
+                            <div class="space-y-2 text-gray-300">
+                                <p><span class="text-purple-200">زمان زمین:</span> ۲۴/۷ فعال</p>
+                                <p><span class="text-purple-200">زمان مریخ:</span> فعال در سول 1 تا 668</p>
+                                <p><span class="text-purple-200">اضطراری:</span> پاسخ فوری کوانتومی</p>
+                            </div>
+                        </div>
+
+                        <!-- نکته جالب -->
+                        <div class="p-6 rounded-xl bg-gradient-to-r from-green-900 to-teal-900 bg-opacity-40">
+                            <h4 class="text-xl font-bold text-white mb-3">🌌 آیا می‌دانستید؟</h4>
+                            <p class="text-gray-300 text-sm">سریع‌ترین زمان پاسخ ما ۰.۳ ثانیه نوری بود، وقتی به یک فضانورد کمک کردیم کفش فضایی‌اش را روی ماه پیدا کند!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+          
+        </div>
+    </div>
+
+    <script>
+        // ایجاد ستاره‌ها
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numberOfStars = 100;
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 3 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // انتخاب فضانورد
+        function selectAstronaut(element, astronautId) {
+            document.querySelectorAll('.astronaut-card').forEach(card => {
+                card.classList.remove('astronaut-selected');
+            });
+            element.classList.add('astronaut-selected');
+            document.getElementById('selectedAstronaut').value = astronautId;
+        }
+
+        // ارسال فرم
+        function handleSubmit(event) {
+            event.preventDefault();
+            const selectedAstronaut = document.getElementById('selectedAstronaut').value;
+            if (!selectedAstronaut) {
+                alert('لطفاً یک فرمانده مأموریت انتخاب کنید!');
+                return;
+            }
+            const button = event.target.querySelector('button');
+            const originalText = button.innerHTML;
+            const astronautNames = {
+                'mahdiye': 'فرمانده مهدیه',
+                'mahdi': 'کاپیتان مهدی',
+                'amirhossein': 'مهندس امیرحسین'
+            };
+            button.innerHTML = `🛸 در حال ارتباط با ${astronautNames[selectedAstronaut]}...`;
+            button.disabled = true;
+            setTimeout(() => {
+                button.innerHTML = `✅ پیام شما توسط ${astronautNames[selectedAstronaut]} دریافت شد!`;
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                    event.target.reset();
+                    document.querySelectorAll('.astronaut-card').forEach(card => {
+                        card.classList.remove('astronaut-selected');
+                    });
+                }, 2000);
+            }, 2000);
+        }
+
+        createStars();
+    </script>
+</body>
+</html>
